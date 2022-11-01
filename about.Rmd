@@ -1,0 +1,11 @@
+---
+title: "Background"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+
+Erfan was born and raised in Iran. He immigrated to the United States after finishing high school, where he continued his higher education. You can find his credentials below:
+
