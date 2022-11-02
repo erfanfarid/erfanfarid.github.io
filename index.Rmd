@@ -1,14 +1,24 @@
 ---
-title: "Erfan Faridmoayer, MD"
+title: "Welcome"
 output: 
   html_document:
     toc: true
     toc_float: true
 ---
 
+# Introduction
 Welcome to Erfan's website. In the following pages, you can find more information about his work and credentials.
 
 \
 
 ![](https://www.downstate.edu/education-training/fellowship-residency-programs/surgery/_images/residency/faridmoayer.jpg)
 
+\
+
+# Who is Erfan?
+Erfan was born and raised in Iran. He immigrated to the United States after finishing high school, where he continued his higher education. He has enjoyed living in California, Michigan, and New York, where he now calls home. 
+
+\
+
+# Research
+Erfan is passionate about health outcomes research, particularly in the field of cardiovascular diseases. He is also interested in translational research on cardiac valve degeneration.
