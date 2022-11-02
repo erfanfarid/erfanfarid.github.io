@@ -8,7 +8,7 @@ output:
 
 We'll use one of the provided datasets.
 
-```{r setup, include=FALSE}
+```{r}
 library(tidyverse)
 library(plotly)
 library(p8105.datasets)
@@ -19,21 +19,45 @@ data("rest_inspec")
 
 inspec = 
   rest_inspec %>% 
-  select(boro, building, critical_flag, cuisine_description, grade, score, inspection_date) %>% 
+  select(boro, building, critical_flag, cuisine_description, grade, score, inspection_date) %>%
   filter(
     !is.na(grade),
-    boro == c("BROOKLYN", "QUEENS"),
-    cuisine_description == c("Italian", "American", "Chinese"),
+    grade != "Not Yet Graded",
+    grade != "Z",
+    grade != "P",
+    boro == c("BROOKLYN", "QUEENS", "BRONX", "MANHATTAN"),
+    cuisine_description == c("Italian", "American", "Chinese", "Korean"),
     score %in% 0:30
-  ) 
+  )
 ```
 
+
+
+## Scatterplot
+Here's a scatter plot 
 ```{r}
 inspec %>% 
   mutate(text_label = str_c("Grade: ", grade, "\nSeverity: ", critical_flag)) %>% 
   plot_ly(
-    x = ~inspection_date, y = ~score, type = "scatter", mode = "markers",
-    color = ~cuisine_description, text = ~text_label, alpha = 0.5)
+    x = ~inspection_date, 
+    y = ~score, 
+    type = "scatter", 
+    mode = "markers",
+    color = ~cuisine_description, 
+    text = ~text_label, 
+    alpha = 0.5)
+```
+
+## Boxplot
+Here's a box plot 
+
+```{r}
+inspec %>% 
+  plot_ly(
+    x = ~boro, 
+    y = ~score,
+    type = "box"
+  )
 ```
 
 
