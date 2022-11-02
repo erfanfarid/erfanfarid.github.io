@@ -1,0 +1,81 @@
+---
+title: "Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    source: embed
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(plotly)
+library(p8105.datasets)
+
+library(flexdashboard)
+```
+
+```{r}
+data("rest_inspec")
+
+inspec = 
+  rest_inspec %>% 
+  select(boro, building, critical_flag, cuisine_description, grade, score, violation_code, inspection_date) %>%
+  filter(
+    !is.na(grade),
+    grade != "Not Yet Graded",
+    grade != "Z",
+    grade != "P",
+    boro == c("BROOKLYN", "QUEENS", "BRONX", "MANHATTAN"),
+    cuisine_description == c("Italian", "American", "Chinese", "Korean"),
+    score %in% 0:30
+  )
+```
+
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+inspec %>% 
+  mutate(text_label = str_c("Grade: ", grade, "\nSeverity: ", critical_flag)) %>% 
+  plot_ly(
+    x = ~inspection_date, 
+    y = ~score, 
+    type = "scatter", 
+    mode = "markers",
+    color = ~cuisine_description, 
+    text = ~text_label, 
+    alpha = 0.5)
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+inspec %>% 
+  plot_ly(
+    x = ~boro, 
+    y = ~score,
+    type = "box"
+  )
+```
+
+### Chart C
+
+```{r}
+inspec %>% 
+  count(violation_code) %>% 
+  mutate(violation_code = fct_reorder(violation_code, n)) %>% 
+  plot_ly(
+    x = ~violation_code, 
+    y = ~n, 
+    color = ~violation_code, 
+    type = "bar", 
+    colors = "viridis")
+```
+

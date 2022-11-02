@@ -7,6 +7,8 @@ navbar:
       href: about.html
     - text: "Plotly"
       href: plotly.html
+    - text: "Dashboard"
+      href: dashboard.html
     - icon: fa-envelope fa-lg
       href: mailto:<erfan_farid@yahoo.com>
     - icon: fa-github fa-lg
@@ -15,4 +17,4 @@ navbar:
       href: http://twitter.com/erfanfarid/
 output:
   html_document:
-    theme: yeti
+    theme: cerulean
