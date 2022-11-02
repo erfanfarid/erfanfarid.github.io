@@ -19,7 +19,7 @@ data("rest_inspec")
 
 inspec = 
   rest_inspec %>% 
-  select(boro, building, critical_flag, cuisine_description, grade, score, inspection_date) %>%
+  select(boro, building, critical_flag, cuisine_description, grade, score, violation_code, inspection_date) %>%
   filter(
     !is.na(grade),
     grade != "Not Yet Graded",
@@ -60,4 +60,17 @@ inspec %>%
   )
 ```
 
+## Barplot
+
+```{r}
+inspec %>% 
+  count(violation_code) %>% 
+  mutate(violation_code = fct_reorder(violation_code, n)) %>% 
+  plot_ly(
+    x = ~violation_code, 
+    y = ~n, 
+    color = ~violation_code, 
+    type = "bar", 
+    colors = "viridis")
+```
 
