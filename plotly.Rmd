@@ -19,21 +19,21 @@ data("rest_inspec")
 
 inspec = 
   rest_inspec %>% 
-  select(boro, building, critical_flag, cuisine_description, grade, inspection_date) %>% 
+  select(boro, building, critical_flag, cuisine_description, grade, score, inspection_date) %>% 
   filter(
     !is.na(grade),
     boro == c("BROOKLYN", "QUEENS"),
-    cuisine_description == c("Italian", "American", "Chinese")
-  ) %>% 
-  separate(
-    inspection_date,
-    c("year", "month", "day"),
-    sep = "-"
-  ) %>% 
-  mutate(
-    year = as.double(year),
-    month = as.double(month),
-    day = as.double(day)
-  )
+    cuisine_description == c("Italian", "American", "Chinese"),
+    score %in% 0:30
+  ) 
 ```
+
+```{r}
+inspec %>% 
+  mutate(text_label = str_c("Grade: ", grade, "\nSeverity: ", critical_flag)) %>% 
+  plot_ly(
+    x = ~inspection_date, y = ~score, type = "scatter", mode = "markers",
+    color = ~cuisine_description, text = ~text_label, alpha = 0.5)
+```
+
 
