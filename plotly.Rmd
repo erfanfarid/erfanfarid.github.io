@@ -6,5 +6,34 @@ output:
     toc_float: true
 ---
 
-# Plotly
+We'll use one of the provided datasets.
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(plotly)
+library(p8105.datasets)
+```
+
+```{r}
+data("rest_inspec")
+
+inspec = 
+  rest_inspec %>% 
+  select(boro, building, critical_flag, cuisine_description, grade, inspection_date) %>% 
+  filter(
+    !is.na(grade),
+    boro == c("BROOKLYN", "QUEENS"),
+    cuisine_description == c("Italian", "American", "Chinese")
+  ) %>% 
+  separate(
+    inspection_date,
+    c("year", "month", "day"),
+    sep = "-"
+  ) %>% 
+  mutate(
+    year = as.double(year),
+    month = as.double(month),
+    day = as.double(day)
+  )
+```
 

@@ -355,9 +355,27 @@ div.tocify {
 </div>
 
 
-<div id="plotly" class="section level1">
-<h1>Plotly</h1>
-</div>
+<p>We’ll use one of the provided datasets.</p>
+<pre class="r"><code>data(&quot;rest_inspec&quot;)
+
+inspec = 
+  rest_inspec %&gt;% 
+  select(boro, building, critical_flag, cuisine_description, grade, inspection_date) %&gt;% 
+  filter(
+    !is.na(grade),
+    boro == c(&quot;BROOKLYN&quot;, &quot;QUEENS&quot;),
+    cuisine_description == c(&quot;Italian&quot;, &quot;American&quot;, &quot;Chinese&quot;)
+  ) %&gt;% 
+  separate(
+    inspection_date,
+    c(&quot;year&quot;, &quot;month&quot;, &quot;day&quot;),
+    sep = &quot;-&quot;
+  ) %&gt;% 
+  mutate(
+    year = as.double(year),
+    month = as.double(month),
+    day = as.double(day)
+  )</code></pre>
 
 
 
