@@ -10,7 +10,9 @@ navbar:
     - icon: fa-envelope fa-lg
       href: mailto:<erfan_farid@yahoo.com>
     - icon: fa-github fa-lg
-      href: http://github.com/erfanfarid/
+      href: http://github.com/erfanfarid/    
+    - icon: fa-brands fa-twitter
+      href: http://twitter.com/erfanfarid/
 output:
   html_document:
     theme: yeti
