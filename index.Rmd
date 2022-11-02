@@ -1,12 +1,14 @@
 ---
-title: "Online C.V. - Erfan Faridmoayer, MD"
+title: "Erfan Faridmoayer, MD"
 output: 
   html_document:
     toc: true
     toc_float: true
 ---
 
-# Introduction
-
 Welcome to Erfan's website. In the following pages, you can find more information about his work and credentials.
+
+\
+
+![](https://www.downstate.edu/education-training/fellowship-residency-programs/surgery/_images/residency/faridmoayer.jpg)
 

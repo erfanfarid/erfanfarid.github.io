@@ -7,5 +7,49 @@ output:
 ---
 
 
-Erfan was born and raised in Iran. He immigrated to the United States after finishing high school, where he continued his higher education. You can find his credentials below:
+Erfan was born and raised in Iran. He immigrated to the United States after finishing high school, where he continued his higher education. 
+
+\
+
+Erfan's academic publications can be found here:
+[Publications](https://www.ncbi.nlm.nih.gov/myncbi/erfan.faridmoayer.2/bibliography/public/)
+
+\
+
+
+## Credentials {.tabset}
+
+### Undergraduate Degree
+
+Bachelor of Science
+\
+University of California, Los Angeles
+\
+2012-2015
+
+### Medical School
+
+Medical Doctorate
+\
+Oakland University William Beaumont School of Medicine
+\
+2016-2020
+
+### Residency
+
+General Surgery Residency
+\
+Downstate Health Sciences University
+\
+2020-2022
+
+### Graduate Studies
+
+Masters of Science Candidate
+\
+Columbia University Mailman School of Public Health
+\
+2022-2024
+
+
 
